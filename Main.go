@@ -1,22 +1,18 @@
 package main
 
-import (
-	"fmt"
-)
+import "golang.org/x/tour/pic"
+
+func Pic(dx, dy int) [][]uint8 {
+	pic := make([][]uint8, dy)
+	for y := range pic {
+		pic[y] = make([]uint8, dx)
+		for x := range pic[y] {
+			pic[y][x] = uint8(0)
+		}
+	}
+	return pic
+}
 
 func main() {
-
-	defer do(f1(4))
-
-	fmt.Println("hello")
-
-}
-
-func do(f int)  {
-	fmt.Println(f)
-}
-
-func f1(x int) int {
-	println(x)
-	return x
+	pic.Show(Pic)
 }
